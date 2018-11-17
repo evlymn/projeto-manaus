@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/Auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 
@@ -14,9 +14,9 @@ export class AuthenticationService {
   private onAuthStateChanged() {
     this.angularFireAuth.auth.onAuthStateChanged(user => {
       if (user) {
-        this.router.navigate(['autenticado']);
+      //  this.router.navigate(['autenticado']);
       } else {
-        this.router.navigate(['nao_autenticado']);
+      //  this.router.navigate(['nao_autenticado']);
       }
     });
   }
