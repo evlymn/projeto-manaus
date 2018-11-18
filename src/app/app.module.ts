@@ -10,6 +10,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AuthenticationService } from './services/Authentication/authentication.service';
 import { LoginComponent } from './login/login.component';
+import { LoginService } from './services/login/login.service';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -20,7 +21,7 @@ import { LoginComponent } from './login/login.component';
     AngularFireAuthModule,
     AngularFireDatabaseModule
   ],
-  providers: [AuthenticationService],
+  providers: [AuthenticationService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
