@@ -9,5 +9,19 @@ import { AuthenticationService } from '../services/Authentication/authentication
 export class LoginComponent implements OnInit {
   constructor(private auth: AuthenticationService) {}
 
-  ngOnInit() {}
+  loginGoogle() {
+    this.auth.signInWithGoogleAuthProvider().then(credentials => {
+        console.log(credentials);
+      }).catch(reason => console.error(reason));
+  }
+
+  loginGitHub() {
+    this.auth.signInWithGithubAuthProvider().then(credentials => {
+        console.log(credentials);
+      }).catch(reason => console.error(reason));
+  }
+
+  ngOnInit() {
+     this.auth.signOut();
+  }
 }
