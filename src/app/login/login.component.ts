@@ -20,7 +20,8 @@ export class LoginComponent implements OnInit {
   }
 
   loginGitHub() {
-    this.auth.signInWithGithubAuthProvider()
+    this.auth
+      .signInWithGithubAuthProvider()
       .then(credentials => {
         this.setUser(credentials.user.uid, credentials.additionalUserInfo);
       })
@@ -29,7 +30,8 @@ export class LoginComponent implements OnInit {
 
   setUser(uid: string, additionalUserInfo: any) {
     console.log(additionalUserInfo);
-    this.loginService.setUser(uid, additionalUserInfo)
+    this.loginService
+      .setUser(uid, additionalUserInfo)
       .then(val => {
         console.log('deu tudo certo', val);
       })

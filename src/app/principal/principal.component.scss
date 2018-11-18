@@ -1,0 +1,30 @@
+.principal-flex {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.mensagens-flex {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  height: 100%;
+  background-color: blueviolet;
+}
+
+.mensagem-flex {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100px;
+  background-color: chocolate;
+  padding: 10%;
+}
+
+.mensagem {
+  background-color: aqua;
+  width: 90%;
+  height: 20px;
+  align-self: center;
+  margin: 5px;
+}
