@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { LoginService } from './services/login/login.service';
 import { PrincipalComponent } from './principal/principal.component';
 import { PrincipalService } from './services/principal/principal.service';
+import { MomentModule } from 'ngx-moment';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, PrincipalComponent],
@@ -21,6 +22,7 @@ import { PrincipalService } from './services/principal/principal.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MomentModule,
     AngularFireModule.initializeApp(FirebaseConfig),
     AngularFireAuthModule,
     AngularFireDatabaseModule

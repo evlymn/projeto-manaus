@@ -1,6 +1,19 @@
 <div class="principal-flex">
-  <div class="mensagens-flex"><div class="mensagem"></div></div>
-  <div class="mensagem-flex">
-    <input [(ngModel)]="mensagem" type="text" />
-    <button (click)="enviar()" >enviar</button></div>
+  <div class="mensagens-flex">
+    <div class="mensagens-container">
+      <div *ngFor="let item of (mensagens | async)" class="mensagem">
+        <img [src]="item.foto" />
+        <div>
+          <div>
+            {{ item.nome }} <span class="horario">{{ item.time | amTimeAgo: true }} </span>
+          </div>
+          <div>{{ item.mensagem }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mensagem-form">
+    <input placeholder="Qual sua mensagem?" [(ngModel)]="mensagem" type="text" />
+    <img (click)="enviar()" src="assets/imagens/enviar.svg" />
+  </div>
 </div>

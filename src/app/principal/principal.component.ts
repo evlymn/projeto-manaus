@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PrincipalService } from '../services/principal/principal.service';
+import { AuthenticationService } from '../services/Authentication/authentication.service';
+import 'moment/locale/pt-br';
 
 @Component({
   selector: 'app-principal',
@@ -7,8 +9,17 @@ import { PrincipalService } from '../services/principal/principal.service';
   styleUrls: ['./principal.component.scss']
 })
 export class PrincipalComponent implements OnInit {
-  constructor(private principalService: PrincipalService) {}
+  constructor(private principalService: PrincipalService, private auth: AuthenticationService) {
+    this.auth.authState.subscribe(user => {
+      if (user) {
+        this.listarMensagens();
+      }
+    });
+  }
+
+  mensagens: any;
   mensagem = '';
+
   enviar() {
     this.principalService.addMensagem(this.mensagem).then(
       () => {
@@ -16,6 +27,9 @@ export class PrincipalComponent implements OnInit {
       },
       reason => console.error(reason)
     );
+  }
+  listarMensagens() {
+    this.mensagens = this.principalService.listarMensagens();
   }
   ngOnInit() {}
 }

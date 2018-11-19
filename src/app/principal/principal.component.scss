@@ -3,28 +3,78 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
+  max-width: 760px;
 }
+
 .mensagens-flex {
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
   height: 100%;
-  background-color: blueviolet;
+  background-color: whitesmoke;
+  overflow: scroll;
 }
 
-.mensagem-flex {
-  display: flex;
-  flex-direction: row;
+.mensagens-container {
   width: 100%;
-  height: 100px;
-  background-color: chocolate;
-  padding: 10%;
+  align-self: center;
 }
 
 .mensagem {
-  background-color: aqua;
-  width: 90%;
-  height: 20px;
-  align-self: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  padding: 3px;
+  margin: 10px;
+  border-bottom: 1px solid gray;
+}
+
+.mensagem img {
+  height: 60px;
+  border-radius: 50%;
+  margin: 10px;
+}
+
+.mensagem div {
   margin: 5px;
+  font-family: sans-serif;
+}
+
+.mensagem div :first-child {
+  font-weight: bold;
+  margin-bottom: 3px;
+  color: rgb(37, 123, 210);
+}
+
+.mensagem div :last-child {
+  margin-bottom: 3px;
+  color: grayscale($color: #212121);
+}
+
+.horario {
+  color: gray;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.mensagem-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 80px;
+  background-color: rgb(167, 167, 167);
+}
+
+.mensagem-form img {
+  width: 35px;
+  margin: 5px;
+}
+
+input {
+  width: 100%;
+  height: 30px;
+  margin: 5px;
+  font-size: 20px;
+  padding: 4px;
+  padding-left: 8px;
 }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,15 @@ export class AuthenticationService {
   private onAuthStateChanged() {
     this.angularFireAuth.auth.onAuthStateChanged(user => {
       if (user) {
-      //  this.router.navigate(['autenticado']);
+        this.router.navigate(['principal']);
       } else {
-      //  this.router.navigate(['nao_autenticado']);
+        this.router.navigate(['']);
       }
     });
+  }
+
+  public get authState(): Observable<firebase.User> {
+    return this.angularFireAuth.authState;
   }
 
   public get currenUser(): firebase.User {

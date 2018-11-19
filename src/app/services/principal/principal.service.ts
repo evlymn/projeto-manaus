@@ -18,4 +18,8 @@ export class PrincipalService {
     };
     return this.db.database.ref('mensagens').push(msg);
   }
+
+  listarMensagens() {
+    return this.db.list('mensagens', ref => ref.limitToLast(20)).valueChanges();
+  }
 }
