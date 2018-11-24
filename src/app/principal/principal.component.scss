@@ -47,10 +47,17 @@
 }
 
 .mensagem div :last-child {
+  vertical-align: text-top;
   margin-bottom: 3px;
   color: grayscale($color: #212121);
 }
 
+.mensagem div :last-child img {
+  margin: 3px;
+  width: 70%;
+  height: auto;
+  border-radius: 0px;
+}
 .horario {
   color: gray;
   font-size: 13px;
@@ -66,15 +73,27 @@
 }
 
 .mensagem-form img {
-  width: 35px;
+  width: 50px;
   margin: 5px;
+  max-width: 50px;
 }
 
 input {
   width: 100%;
   height: 30px;
   margin: 5px;
-  font-size: 20px;
+  font-size: 18px;
   padding: 4px;
   padding-left: 8px;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.percentual {
+  width: auto;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-align: center;
 }

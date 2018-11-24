@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -15,6 +15,11 @@ import { LoginService } from './services/login/login.service';
 import { PrincipalComponent } from './principal/principal.component';
 import { PrincipalService } from './services/principal/principal.service';
 import { MomentModule } from 'ngx-moment';
+import { Ng2ImgMaxModule } from 'ng2-img-max';
+import { StorageService } from './services/storage/storage.service';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AdminService } from './services/admin/admin.service';
+import { MaterialModule } from './material-modules';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, PrincipalComponent],
@@ -22,12 +27,16 @@ import { MomentModule } from 'ngx-moment';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    MaterialModule,
+    BrowserAnimationsModule,
     MomentModule,
+    Ng2ImgMaxModule,
     AngularFireModule.initializeApp(FirebaseConfig),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
   ],
-  providers: [AuthenticationService, LoginService, PrincipalService],
+  providers: [AuthenticationService, LoginService, PrincipalService, StorageService, AdminService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

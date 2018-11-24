@@ -8,14 +8,16 @@ import { AuthenticationService } from '../Authentication/authentication.service'
 export class PrincipalService {
   constructor(private db: AngularFireDatabase, private auth: AuthenticationService) {}
 
-  addMensagem(mensagem: string) {
+  addMensagem(mensagem: string, urlImagem?: string) {
     const msg = {
       mensagem: mensagem,
       time: new Date().getTime(),
       uid: this.auth.currenUser.uid,
       nome: this.auth.currenUser.displayName,
-      foto: this.auth.currenUser.photoURL
+      foto: this.auth.currenUser.photoURL,
+      urlImagem: urlImagem ? urlImagem : null
     };
+
     return this.db.database.ref('mensagens').push(msg);
   }
 

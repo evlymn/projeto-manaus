@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "coffee-to-code"
+    "default": "coffee-to-code",
+    "pesquisa": "dblab-pesquisa"
   }
 }

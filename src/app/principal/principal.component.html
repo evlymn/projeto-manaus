@@ -5,15 +5,21 @@
         <img [src]="item.foto" />
         <div>
           <div>
-            {{ item.nome }} <span class="horario">{{ item.time | amTimeAgo: true }} </span>
+            {{ item.nome }} <br />
+            <span class="horario">{{ item.time | amTimeAgo: true }} </span>
           </div>
-          <div>{{ item.mensagem }}</div>
+          <div>
+            {{ item.mensagem }} <br />
+            <img *ngIf="item.urlImagem" [src]="item.urlImagem" />
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="mensagem-form">
-    <input placeholder="Qual sua mensagem?" [(ngModel)]="mensagem" type="text" />
-    <img (click)="enviar()" src="assets/imagens/enviar.svg" />
+  <div *ngIf="admin.formHabilitado" class="mensagem-form">
+    <input  (keyup.enter)="enviar()" placeholder="Qual sua mensagem?" [(ngModel)]="mensagem" type="text" />
+    <input  type="file" capture="camera" (change)="onImageChange($event)" accept="image/*" #file />
+    <img *ngIf="admin.imagemHabilitada" (click)="file.click()" [src]="srcButtom" />
+    <img (click)="enviar()" src="assets/imagens/send.svg" />
   </div>
 </div>
